@@ -8,15 +8,26 @@ using System.Linq;
 public class StateManager : MonoBehaviour {
     HashSet<Square> lockedSquares = new HashSet<Square>();
     // FOR TESTING:
-    Board board = new Board(6, 6);                   //  | 0  | 1  | 2  | 3  | 4  | 5  |
-                                                     //---------------------------------
-    Piece A_PIECE_1 = new Piece("uida1", Player.A);  //0 | A1 |    |    |    |    |    |
-    Piece A_PIECE_2 = new Piece("uida2", Player.A);  //1 |    |    |    | A3 |    |    |
-    Piece A_PIECE_3 = new Piece("uida3", Player.A);  //2 |    |    | A2 | B2 |    |    |
-                                                     //3 |    |    | B1 |    | B3 |    |
-    Piece B_PIECE_1 = new Piece("uidb1", Player.B);  //4 |    |    |    |    |    |    |
-    Piece B_PIECE_2 = new Piece("uidb2", Player.B);  //5 |    |    |    |    |    |    |
-    Piece B_PIECE_3 = new Piece("uidb3", Player.B);  //---------------------------------
+    Board board = new Board(6, 6);
+
+    Piece A_PIECE_1 = new Piece("uida1", Player.A);
+    Piece A_PIECE_2 = new Piece("uida2", Player.A);
+    Piece A_PIECE_3 = new Piece("uida3", Player.A);
+
+    Piece B_PIECE_1 = new Piece("uidb1", Player.B);
+    Piece B_PIECE_2 = new Piece("uidb2", Player.B);
+    Piece B_PIECE_3 = new Piece("uidb3", Player.B);
+
+    //z
+    //---------------------------------
+    //5 |    |    |    |    |    |    |
+    //4 |    |    |    |    |    |    |
+    //3 |    |    | B1 |    | B3 |    |
+    //2 |    |    | A2 | B2 |    |    |
+    //1 |    |    |    | A3 |    |    |
+    //0 | A1 |    |    |    |    |    |
+    //---------------------------------
+    //  | 0  | 1  | 2  | 3  | 4  | 5  | x
 
     void Start()
     {
@@ -31,8 +42,8 @@ public class StateManager : MonoBehaviour {
             new Move(A_PIECE_1),
             new Move(A_PIECE_2, Move.Direction.RIGHT),
             new Move(A_PIECE_3, Move.Direction.DOWN),
-            new Move(B_PIECE_1, Move.Direction.UP),
-            new Move(B_PIECE_2, Move.Direction.UP),
+            new Move(B_PIECE_1, Move.Direction.DOWN),
+            new Move(B_PIECE_2, Move.Direction.DOWN),
             new Move(B_PIECE_3, Move.Direction.LEFT),
         };
 
